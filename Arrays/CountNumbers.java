@@ -1,0 +1,19 @@
+public class CountNumbers{
+    public int CountNumber(int n){
+        int count = 0;
+    
+        while(n>0){
+            n=n/10;
+            
+            count++;
+          
+        }
+        return count;
+    }
+    public static void main(String[] args){
+        int n=123345;
+        CountNumbers cn=new CountNumbers();
+        System.out.println(cn.CountNumber(n));
+
+    }
+}
