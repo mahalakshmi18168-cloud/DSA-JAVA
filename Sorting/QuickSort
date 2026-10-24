@@ -1,0 +1,42 @@
+class Solution {
+    public int[] quickSort(int[] nums) {
+        int lb=0;
+        int ub=nums.length-1;
+        quickSort(nums,lb,ub);
+        return nums;
+    }
+
+    public void quickSort(int[] nums,int lb,int ub){
+        if(lb<ub){
+          int  loc=partition(nums,lb,ub);
+        quickSort(nums,lb,loc-1);
+        quickSort(nums,loc+1,ub);
+        }   
+
+    }
+
+    public int partition(int[] nums,int lb,int ub){
+        int pivot=nums[lb];
+        int start=lb;
+        int end=ub;
+
+        while(start<end){       
+            while(start<ub  && nums[start]<=pivot){
+                start++;
+            }
+            while(nums[end]>pivot){
+                end--;
+            }if(start<end){
+                int temp = nums[start];
+                nums[start]=nums[end];
+                nums[end]=temp;
+            }
+        }
+        int temp=nums[lb];
+        nums[lb]=nums[end];
+        nums[end]=temp;
+
+        return end;
+    }
+    
+}
